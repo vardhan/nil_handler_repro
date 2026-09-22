@@ -1,0 +1,11 @@
+name: nil_handler_repro
+description: Standalone macOS reproduction for flutter/flutter issue 193097.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: ^3.13.4
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  uses-material-design: true
