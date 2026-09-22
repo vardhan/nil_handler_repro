@@ -1,11 +1,10 @@
 # issue 193097 macOS reproduction
 
-## Requirements
-
+# You need:
 - macOS with Xcode installed and its command-line tools configured.
 - Flutter 3.47.5 stable available as `flutter` on `$PATH`.
 
-## Get the reproduction
+# Pull this:
 
 ```sh
 git clone https://github.com/vardhan/nil_handler_repro.git
@@ -14,22 +13,11 @@ flutter --version
 flutter pub get
 ```
 
-## Build
-
-```sh
-flutter build macos --debug
-```
-
-If you use mise, `mise run build` runs the same command.
-
-## Run
+# Build & Run
 
 ```sh
 flutter run -d macos
 ```
-
-This builds and launches the app; a separate build step is optional. The
-reproduction starts automatically and is expected to crash on the affected SDK.
 
 ## Expected and actual behavior
 
@@ -41,8 +29,5 @@ channel. A baseline send before registration returns `null` normally.
 Expected: the send after unregistration also returns `null`.
 Actual: the app crashes in `-[FlutterEngine engineCallbackOnPlatformMessage:]`
 with `EXC_BAD_ACCESS` at address `0x10`.
-
-Verified on stock Flutter 3.47.5 stable (`6a19cca564`), engine `af7e796e16`,
-macOS 27.0 arm64, Xcode 26.6.
 
 Issue: https://github.com/flutter/flutter/issues/193097
